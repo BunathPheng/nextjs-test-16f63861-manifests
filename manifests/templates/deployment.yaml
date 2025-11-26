@@ -1,0 +1,26 @@
+---
+# Source: helm for kubernetes/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nextjs-test-16f63861
+  labels:
+    app: nextjs-test-16f63861
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: nextjs-test-16f63861
+  template:
+    metadata:
+      labels:
+        app: nextjs-test-16f63861
+    spec:
+      serviceAccountName: ingress-manager
+      containers:
+        - name: nextjs-test-16f63861
+          image: docker.io/phengbunath/nextjs-test-16f63861:1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
